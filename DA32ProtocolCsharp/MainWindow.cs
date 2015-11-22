@@ -49,7 +49,7 @@ namespace DA32ProtocolCsharp
         {
             SKMessage skm = new SKMessage();
             byte[] by;
-            skm.set_send_textmes("Hello", textBox2.Text, 2);
+            skm.set_send_textmes("Hello", textBox2.Text, -1);
             skm.encodemes(SKMessage.mestype.TEXT,out by);
             textBox1.Text = Encoding.UTF8.GetString(by);
         }
