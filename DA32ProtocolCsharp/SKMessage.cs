@@ -9,6 +9,9 @@ using System.Security.Cryptography;
 
 namespace DA32ProtocolCsharp
 {
+    /// <summary>
+    /// 运行在json层与信息层之间的类，将剔除头尾和长度信息的字节层信息翻译成信息层。
+    /// </summary>
     class SKMessage
     {
         public enum mestype { TEXT, RESPONSE, EXIT, UNDEFINED };
