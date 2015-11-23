@@ -199,9 +199,40 @@ namespace DA32ProtocolCsharp
         {
             return last_textmes;
         }
-        ///<summary>
-        ///设置下一个将要编码的消息，自动打时间戳
+
+        /// <summary>
+        /// 设置下一个将要编码的消息，自动打时间戳
+        /// 调用此函数将不会更改上一个待发送消息的Name和text，但仍旧会更新id与time
         /// </summary>
+        /// <param name="id">ID号</param>
+        /// <returns>是否设置成功</returns>
+        public bool set_send_mes(int id = 1)
+        {
+            send_textmes.id = id;
+            send_textmes.time = DateTime.Now;
+            return true;
+        }
+
+        /// <summary>
+        /// 设置下一个将要编码的消息，手动打时间戳
+        /// 调用此函数将不会更改上一个待发送消息的Name和text，但仍旧会更新id与time
+        /// </summary>
+        /// <param name="dt">时间戳</param>
+        /// <param name="id">ID号</param>
+        /// <returns>是否设置成功</returns>
+        public bool set_send_mes(DateTime dt, int id = 1)
+        {
+            send_textmes.id = id;
+            send_textmes.time = dt;
+            return true;
+        }
+        /// <summary>
+        /// 设置下一个将要编码的消息，自动打时间戳
+        /// </summary>
+        /// <param name="name">发送方的名字</param>
+        /// <param name="text">待编码的消息</param>
+        /// <param name="id">ID号</param>
+        /// <returns>是否设置成功</returns>
         public bool set_send_textmes(string name, string text, int id = 1)
         {
             send_textmes.id = id;
@@ -210,9 +241,14 @@ namespace DA32ProtocolCsharp
             send_textmes.name = name;
             return true;
         }
-        ///<summary>
-        ///设置下一个将要编码的消息，手动打时间戳
+        /// <summary>
+        /// 设置下一个将要编码的消息，手动打时间戳
         /// </summary>
+        /// <param name="name">发送方的名字</param>
+        /// <param name="text">待编码的消息</param>
+        /// <param name="dt">时间戳</param>
+        /// <param name="id">ID号</param>
+        /// <returns>是否设置成功</returns>
         public bool set_send_textmes(string name, string text,DateTime dt, int id = 1)
         {
             send_textmes.id = id;
