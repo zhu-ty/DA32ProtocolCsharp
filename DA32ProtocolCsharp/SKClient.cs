@@ -43,8 +43,11 @@ namespace DA32ProtocolCsharp
                 }
                 if (((IPEndPoint)(c.RemoteEndPoint)).Address.ToString() == target_ip.ToString())
                 {
-                    c_now = c;
-                    break;
+                    if (c.Connected == true)
+                    {
+                        c_now = c;
+                        break;
+                    }
                 }
             }
             //新建连接
@@ -111,8 +114,11 @@ namespace DA32ProtocolCsharp
                 }
                 if (((IPEndPoint)(c.RemoteEndPoint)).Address.ToString() == target_ip.ToString())
                 {
-                    c_now = c;
-                    break;
+                    if (c.Connected == true)
+                    {
+                        c_now = c;
+                        break;
+                    }
                 }
             }
             if (c_now == null)
@@ -179,8 +185,11 @@ namespace DA32ProtocolCsharp
                 }
                 if (((IPEndPoint)(c.RemoteEndPoint)).Address.ToString() == target_ip.ToString())
                 {
-                    c_now = c;
-                    break;
+                    if (c.Connected == true)
+                    {
+                        c_now = c;
+                        break;
+                    }
                 }
             }
             //新建连接
