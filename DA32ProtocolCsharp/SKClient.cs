@@ -115,18 +115,10 @@ namespace DA32ProtocolCsharp
                     break;
                 }
             }
-            //新建连接
             if (c_now == null)
             {
-                c_now = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                IAsyncResult connect_result = c_now.BeginConnect(target_ip, SKServer.ListenPort, null, null);
-                connect_result.AsyncWaitHandle.WaitOne(max_connect_senconds * 1000);//10s
-                if (!connect_result.IsCompleted)
-                {
-                    client_lock.ReleaseMutex();
-                    return false;
-                }
-                client_communication_sockets.Add(c_now);
+                client_lock.ReleaseMutex();
+                return true;
             }
             byte[] send_byte;
             skmessage.set_send_mes(dt, id);//此举将会更新下一个待发包的id与time
