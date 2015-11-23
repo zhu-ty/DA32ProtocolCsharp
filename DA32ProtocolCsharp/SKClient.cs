@@ -32,11 +32,13 @@ namespace DA32ProtocolCsharp
         {
             Socket c_now = null;
             client_lock.WaitOne();
-            foreach (Socket c in client_communication_sockets)
+            for (int i = 0; i < client_communication_sockets.Count; i++)
             {
+                Socket c = client_communication_sockets[i];
                 if (c == null)
                 {
                     client_communication_sockets.Remove(c);
+                    i--;
                     continue;
                 }
                 if (((IPEndPoint)(c.RemoteEndPoint)).Address.ToString() == target_ip.ToString())
@@ -98,11 +100,13 @@ namespace DA32ProtocolCsharp
         {
             Socket c_now = null;
             client_lock.WaitOne();
-            foreach (Socket c in client_communication_sockets)
+            for (int i = 0; i < client_communication_sockets.Count; i++)
             {
+                Socket c = client_communication_sockets[i];
                 if (c == null)
                 {
                     client_communication_sockets.Remove(c);
+                    i--;
                     continue;
                 }
                 if (((IPEndPoint)(c.RemoteEndPoint)).Address.ToString() == target_ip.ToString())
@@ -172,11 +176,13 @@ namespace DA32ProtocolCsharp
             if (name.Length > max_name_len || text.Length > max_text_len || name.Length == 0 || text.Length == 0)
                 return false;
             Socket c_now = null;
-            foreach (Socket c in client_communication_sockets)
+            for(int i = 0;i < client_communication_sockets.Count;i++)
             {
+                Socket c = client_communication_sockets[i];
                 if (c == null)
                 {
                     client_communication_sockets.Remove(c);
+                    i--;
                     continue;
                 }
                 if (((IPEndPoint)(c.RemoteEndPoint)).Address.ToString() == target_ip.ToString())
@@ -233,11 +239,13 @@ namespace DA32ProtocolCsharp
         {
             bool ret = true;
             client_lock.WaitOne();
-            foreach (Socket c_now in client_communication_sockets)
+            for(int i = 0;i < client_communication_sockets.Count;i++)
             {
+                Socket c_now = client_communication_sockets[i];
                 if (c_now == null)
                 {
                     client_communication_sockets.Remove(c_now);
+                    i--;
                     continue;
                 }
                 byte[] send_byte;
