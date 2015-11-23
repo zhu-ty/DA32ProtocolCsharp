@@ -111,7 +111,7 @@ namespace DA32ProtocolCsharp
         }
         ///<summary>
         ///当bool=true且type为TEXT时，从send_textmes中拿取信息生成jsonb，否则直接生成其他的type
-        ///生成其他的type的时候，会利用到send_textmes中的id与Time信息。
+        ///<para>生成其他的type的时候，会利用到send_textmes中的id与Time信息。</para>
         /// </summary>
         public bool encodemes(mestype type, out byte[] jsonb)
         {
@@ -202,7 +202,7 @@ namespace DA32ProtocolCsharp
 
         /// <summary>
         /// 设置下一个将要编码的消息，自动打时间戳
-        /// 调用此函数将不会更改上一个待发送消息的Name和text，但仍旧会更新id与time
+        /// <para>调用此函数将不会更改上一个待发送消息的Name和text，但仍旧会更新id与time</para>
         /// </summary>
         /// <param name="id">ID号</param>
         /// <returns>是否设置成功</returns>
@@ -215,7 +215,7 @@ namespace DA32ProtocolCsharp
 
         /// <summary>
         /// 设置下一个将要编码的消息，手动打时间戳
-        /// 调用此函数将不会更改上一个待发送消息的Name和text，但仍旧会更新id与time
+        /// <para>调用此函数将不会更改上一个待发送消息的Name和text，但仍旧会更新id与time</para>
         /// </summary>
         /// <param name="dt">时间戳</param>
         /// <param name="id">ID号</param>

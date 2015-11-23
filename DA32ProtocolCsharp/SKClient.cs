@@ -22,7 +22,7 @@ namespace DA32ProtocolCsharp
 
         /// <summary>
         /// 发送一个Response信息
-        /// 若为新的连接，尝试连接时间为10秒
+        /// <para>若为新的连接，尝试连接时间为10秒</para>
         /// </summary>
         /// <param name="id">包内id号</param>
         /// <param name="target_ip">目标IP，若不在已有socket中将会被创建</param>
@@ -93,7 +93,7 @@ namespace DA32ProtocolCsharp
 
         /// <summary>
         /// 发送一个Exit信息，关闭连接
-        /// 若为新的连接，尝试连接时间为10秒
+        /// <para>若为新的连接，尝试连接时间为10秒</para>
         /// </summary>
         /// <param name="id">包内id号</param>
         /// <param name="target_ip">目标IP，若不在已有socket中将会被创建</param>
@@ -158,9 +158,9 @@ namespace DA32ProtocolCsharp
 
         /// <summary>
         /// 发送一个text信息
-        /// name最大长度目前被规定为100
-        /// text最大长度目前被规定为20000
-        /// 若为新的连接，尝试连接时间为10秒
+        /// <para>name最大长度目前被规定为100</para>
+        /// <para>text最大长度目前被规定为20000</para>
+        /// <para>若为新的连接，尝试连接时间为10秒</para>
         /// </summary>
         /// <param name="id">包内id号</param>
         /// <param name="name">发送方昵称</param>
