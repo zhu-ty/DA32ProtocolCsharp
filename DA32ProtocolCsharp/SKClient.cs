@@ -48,6 +48,13 @@ namespace DA32ProtocolCsharp
                         c_now = c;
                         break;
                     }
+                    else
+                    {
+                        client_communication_sockets.Remove(c);
+                        c.Close();
+                        i--;
+                        continue;
+                    }
                 }
             }
             //新建连接
@@ -58,6 +65,7 @@ namespace DA32ProtocolCsharp
                 connect_result.AsyncWaitHandle.WaitOne(max_connect_senconds * 1000);//10s
                 if (!connect_result.IsCompleted)
                 {
+                    c_now.Close();
                     client_lock.ReleaseMutex();
                     return false;
                 }
@@ -93,7 +101,7 @@ namespace DA32ProtocolCsharp
 
         /// <summary>
         /// 发送一个Exit信息，关闭连接
-        /// <para>若为新的连接，尝试连接时间为10秒</para>
+        /// <para>若为新的连接，将不会建立</para>
         /// </summary>
         /// <param name="id">包内id号</param>
         /// <param name="target_ip">目标IP，若不在已有socket中将会被创建</param>
@@ -118,6 +126,13 @@ namespace DA32ProtocolCsharp
                     {
                         c_now = c;
                         break;
+                    }
+                    else
+                    {
+                        client_communication_sockets.Remove(c);
+                        c.Close();
+                        i--;
+                        continue;
                     }
                 }
             }
@@ -190,6 +205,13 @@ namespace DA32ProtocolCsharp
                         c_now = c;
                         break;
                     }
+                    else
+                    {
+                        client_communication_sockets.Remove(c);
+                        c.Close();
+                        i--;
+                        continue;
+                    }
                 }
             }
             //新建连接
@@ -200,6 +222,7 @@ namespace DA32ProtocolCsharp
                 connect_result.AsyncWaitHandle.WaitOne(max_connect_senconds * 1000);//10s
                 if (!connect_result.IsCompleted)
                 {
+                    c_now.Close();
                     client_lock.ReleaseMutex();
                     return false;
                 }
