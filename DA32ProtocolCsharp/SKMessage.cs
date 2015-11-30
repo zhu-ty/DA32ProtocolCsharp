@@ -14,7 +14,13 @@ namespace DA32ProtocolCsharp
     /// </summary>
     class SKMessage
     {
+        /// <summary>
+        /// 消息类型
+        /// </summary>
         public enum mestype { TEXT, RESPONSE, EXIT, UNDEFINED };
+        /// <summary>
+        /// 一个text包的data内容
+        /// </summary>
         public struct textmes
         {
             public int id;
@@ -23,6 +29,9 @@ namespace DA32ProtocolCsharp
             public string text;
         }
 
+        /// <summary>
+        /// 构造函数，注意到内部的两个text_mes都只有默认值
+        /// </summary>
         public SKMessage()
         {
             last_textmes.id = -1;

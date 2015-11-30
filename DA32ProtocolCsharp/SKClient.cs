@@ -249,7 +249,7 @@ namespace DA32ProtocolCsharp
                 client_communication_sockets.Remove(c_now);
                 c_now.Close();
                 client_lock.ReleaseMutex();
-                return false;//虽然返回是false，但已经成功exit。
+                return false;
             }
             client_lock.ReleaseMutex();
             return true;

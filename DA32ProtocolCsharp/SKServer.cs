@@ -15,13 +15,37 @@ namespace DA32ProtocolCsharp
     /// </summary>
     class SKServer
     {
+        /// <summary>
+        /// 连接监听端口
+        /// </summary>
         public const int ListenPort = 3232;
+        /// <summary>
+        /// 最大同时连接数量
+        /// </summary>
         public const int max_connection = 100;
+        /// <summary>
+        /// 最大单次收取字节数
+        /// </summary>
         public const int max_byte_once = 100000;
+        /// <summary>
+        /// 包前缀长度
+        /// </summary>
         public const int head_byte_size = 10;
+        /// <summary>
+        /// 包后缀长度
+        /// </summary>
         public const int end_byte_size = 2;
+        /// <summary>
+        /// 包固定前缀的内容
+        /// </summary>
         public static readonly byte[] head_2_bytes = { 0x32, 0xA0 };
+        /// <summary>
+        /// 包固定后缀内容
+        /// </summary>
         public static readonly byte[] end_2_bytes = { 0x42,0xF0};
+        /// <summary>
+        /// 回调事件
+        /// </summary>
         public event OnServerCall ServerCall;
         public delegate void OnServerCall(object sender, SKServerEventArgs e);
         /// <summary>
