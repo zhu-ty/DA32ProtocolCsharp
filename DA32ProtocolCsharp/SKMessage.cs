@@ -172,7 +172,7 @@ namespace DA32ProtocolCsharp
                             s += "\"else\":{},";
                             s += "\"data\":{";
                             s += "\"name\":\"" + add_special_char(send_textmes.name) + "\",";
-                            s += "\"text\":\"" + add_special_char(send_textmes.text) + "\",";
+                            s += "\"text\":\"" + add_special_char(send_textmes.text) + "\"";
                             s += "},";
                             List<byte[]> con_byte = new List<byte[]>();
                             con_byte.Add(BitConverter.GetBytes(send_textmes.id));

@@ -16,8 +16,17 @@ namespace DA32ProtocolCsharp
     /// </summary>
     class SKClient
     {
+        /// <summary>
+        /// 连接最长等待时间
+        /// </summary>
         public const int max_connect_senconds = 10;
+        /// <summary>
+        /// Name最大长度
+        /// </summary>
         public const int max_name_len = 100;
+        /// <summary>
+        /// 消息最大长度
+        /// </summary>
         public const int max_text_len = 20000;
 
         /// <summary>
