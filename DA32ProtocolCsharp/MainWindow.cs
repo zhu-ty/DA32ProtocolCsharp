@@ -33,10 +33,10 @@ namespace DA32ProtocolCsharp
             }
             if (c.SendText(1, textBox5.Text, textBox2.Text, ip, DateTime.Now))
             {
-                textBox5.Text = "";
                 textBox3.AppendText("\n");
                 textBox3.AppendText(textBox5.Text + " " + DateTime.Now.ToString() + "\n");
                 textBox3.AppendText(textBox2.Text);
+                textBox2.Text = "";
             }
         }
 
