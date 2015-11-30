@@ -33,6 +33,7 @@ namespace DA32ProtocolCsharp
             }
             if (c.SendText(1, textBox5.Text, textBox2.Text, ip, DateTime.Now))
             {
+                textBox5.Text = "";
                 textBox3.AppendText("\n");
                 textBox3.AppendText(textBox5.Text + " " + DateTime.Now.ToString() + "\n");
                 textBox3.AppendText(textBox2.Text);
@@ -53,8 +54,8 @@ namespace DA32ProtocolCsharp
                         textBox1.AppendText(x.text);
                     };
                     textBox1.Invoke(textbox1act, et.text_pack);
-                    c.SendResponse(1, e.ip, DateTime.Now);
                 }
+                c.SendResponse(1, e.ip, DateTime.Now);
             }
             else if (e.type == SKMessage.mestype.EXIT)
             {
